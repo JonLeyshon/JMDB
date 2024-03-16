@@ -1,10 +1,11 @@
-import axios from "axios";
 import { getMoviesBySearch } from "./getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setMovieSearchData,
   selectMovieSearchData,
 } from "../redux/movieSearchSlice";
+import UserSearchContainer from "./UserSearchContainer";
+import { Link } from "react-router-dom";
 
 const UserSearch = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,21 @@ const UserSearch = () => {
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search Your Movie"
-        onChange={(e) => {
-          getUserSearch(e);
-        }}
-      />
+      <div className="searchTools">
+        <input
+          type="text"
+          placeholder="Find your movie, tv show or actor"
+          onChange={(e) => {
+            getUserSearch(e);
+          }}
+        />
+
+        {/* <Link to="search"> */}
+        <button>Search</button>
+        {/* </Link> */}
+      </div>
+
+      <UserSearchContainer />
     </>
   );
 };

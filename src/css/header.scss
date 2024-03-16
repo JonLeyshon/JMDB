@@ -1,0 +1,17 @@
+header {
+  background-color: var(--main-blue);
+  color: var(--light-text-color);
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  header img {
+    width: 180px;
+  }
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+  }
+}
