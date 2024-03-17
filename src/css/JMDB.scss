@@ -15,7 +15,7 @@ body {
   justify-content: center;
   button {
     border-radius: 24px;
-    background-color: #81e291;
+    background-color: var(--main-green);
   }
   input {
     width: 65vw;
@@ -58,6 +58,12 @@ button {
 
 main {
   padding: 0.5rem;
+}
+
+.searchResultChild {
+  img {
+    width: 150px;
+  }
 }
 
 .titleDetails {

@@ -9,7 +9,7 @@ export const movieSearchSlice = createSlice({
   initialState,
   reducers: {
     setMovieSearchData: (state, { payload }) => {
-      state.movieSearchData = payload;
+      state.movieSearchData = payload.results;
     },
   },
 });

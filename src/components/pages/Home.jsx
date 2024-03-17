@@ -1,6 +1,6 @@
-import UserSearch from "../UserSearch";
-import PopularContainer from "../PopularContainer";
-import TopRatedContainer from "../topRatedContainer";
+import UserSearch from "../searchComponents/UserSearch";
+import PopularContainer from "../homeComponents/PopularContainer";
+import TopRatedContainer from "../homeComponents/topRatedContainer";
 const Home = () => {
   return (
     <>

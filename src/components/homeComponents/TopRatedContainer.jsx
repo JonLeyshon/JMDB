@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectTopRatedData,
   setCurrentSelectionTR,
-} from "../redux/topRatedSlice";
+} from "../../redux/topRatedSlice";
 import TopRatedChild from "./TopRatedChild";
 
 const TopRatedContainer = () => {

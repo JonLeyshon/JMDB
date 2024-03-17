@@ -1,6 +1,6 @@
 import { useState } from "react";
-import NavLeft from "./headerComponents/NavLeft";
-import NavRight from "./headerComponents/NavRight";
+import NavLeft from "./NavLeft";
+import NavRight from "./NavRight";
 
 const Header = () => {
   return (

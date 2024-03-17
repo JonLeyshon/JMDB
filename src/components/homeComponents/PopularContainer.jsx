@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectPopularData,
   setCurrentSelectionPopular,
-} from "../redux/PopularDataSlice";
+} from "../../redux/PopularDataSlice";
 import PopularChild from "./PopularChild";
 
 const PopularContainer = () => {

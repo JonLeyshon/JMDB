@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectCurrentSelectionPoular } from "../redux/PopularDataSlice";
+import { selectCurrentSelectionPoular } from "../../redux/PopularDataSlice";
 
 const PopularChild = (props) => {
   const { title, poster_path, profile_path } = props;
