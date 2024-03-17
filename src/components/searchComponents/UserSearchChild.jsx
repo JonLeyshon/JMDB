@@ -1,17 +1,31 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectResultType } from "../../redux/movieSearchSlice";
 
 const UserSearchChild = (props) => {
+  const currentSelection = useSelector(selectResultType);
   const {
     title,
+    name,
     overview,
     backdrop_path,
     id,
     poster_path,
+    profile_path,
     vote_average,
     release_date,
+    first_air_date,
   } = props;
-  const posterImage = `https://image.tmdb.org/t/p/original${poster_path}`;
-  const readableReleaseDate = new Date(release_date).toDateString();
+
+  const imageSrc =
+    currentSelection === "movie" || currentSelection === "tv"
+      ? poster_path
+      : profile_path;
+  const posterImage = `https://image.tmdb.org/t/p/original${imageSrc}`;
+  const conditionalTitle = currentSelection === "movie" ? title : name;
+  const conditionalDate =
+    currentSelection === "movie" ? release_date : first_air_date;
+  const readableReleaseDate = new Date(conditionalDate).toDateString();
 
   return (
     <div className="searchResultChild">
@@ -19,8 +33,8 @@ const UserSearchChild = (props) => {
         <img src={posterImage} alt={`${title} poster `} />
       </Link>
       <div className="movieDetails">
-        <h3>{title}</h3>
-        <small> {readableReleaseDate} </small>
+        <h3>{conditionalTitle}</h3>
+        <small> Original Release: {readableReleaseDate} </small>
         <p>{overview}</p>
       </div>
     </div>

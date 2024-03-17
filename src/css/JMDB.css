@@ -17,6 +17,7 @@ body {
 .searchTools button {
   border-radius: 24px;
   background-color: var(--main-green);
+  padding: 17px;
 }
 .searchTools input {
   width: 65vw;
@@ -61,33 +62,28 @@ main {
   padding: 0.5rem;
 }
 
+.searchResultChild {
+  display: flex;
+  align-items: center;
+  margin: 15px 4px;
+  background-color: #00242c;
+  color: white;
+  border-radius: 24px;
+  font-size: 12px;
+}
+.searchResultChild .movieDetails {
+  font-size: 12px;
+  padding: 0px 19px;
+}
 .searchResultChild img {
   width: 150px;
+  padding: 10px;
+}
+.searchResultChild h3 {
+  font-size: 18px;
 }
 
 .titleDetails {
   display: flex;
   font-size: 16px;
-}
-
-footer {
-  background-color: var(--main-blue);
-  display: flex;
-  justify-content: space-between;
-  padding: 3px 10px;
-}
-
-.footer-left {
-  color: var(--main-green);
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.footer-left img {
-  width: 100px;
-}
-
-.footer-right {
-  color: var(--light-text-color);
 }/*# sourceMappingURL=JMDB.css.map */

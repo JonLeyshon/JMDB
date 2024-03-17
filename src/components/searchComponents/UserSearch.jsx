@@ -1,17 +1,28 @@
 import { getMoviesBySearch } from "../utils/getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setMovieSearchData } from "../../redux/movieSearchSlice";
+import {
+  selectResultType,
+  selectSearchTerm,
+  setMovieSearchData,
+  setSearchTerm,
+} from "../../redux/movieSearchSlice";
+import { useEffect } from "react";
 
 const UserSearch = () => {
   const dispatch = useDispatch();
-
-  let userSearch;
+  const resultType = useSelector(selectResultType);
+  const searchTerm = useSelector(selectSearchTerm);
+  console.log(resultType);
 
   const handleSearchData = async () => {
-    const data = await getMoviesBySearch(userSearch);
+    const data = await getMoviesBySearch(searchTerm, resultType);
     dispatch(setMovieSearchData(data));
   };
+
+  useEffect(() => {
+    handleSearchData();
+  }, [resultType]);
 
   return (
     <>
@@ -20,12 +31,11 @@ const UserSearch = () => {
           type="text"
           placeholder="Find your movie, tv show or actor"
           onChange={(e) => {
-            userSearch = e.target.value;
-            console.log(userSearch);
+            dispatch(setSearchTerm(e.target.value));
           }}
+          value={searchTerm}
         />
 
-        {/* Link adding extra /search each time pressed */}
         <Link to="/search">
           <button
             onClick={() => {

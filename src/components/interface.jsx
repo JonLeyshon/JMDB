@@ -12,6 +12,7 @@ import {
 import { Routes, Route } from "react-router-dom";
 import SearchResultsPage from "./searchComponents/SearchResults.jsx";
 import Home from "./pages/Home.jsx";
+import Details from "./pages/MovieDetails.jsx";
 
 const Interface = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const Interface = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResultsPage />} />
+        <Route path="/details/:id" element={<Details />} />
       </Routes>
     </>
   );
