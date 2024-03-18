@@ -20,7 +20,7 @@ const IndiMovieDetails = (props) => {
     <>
       <div className="IndiMovieContainer">
         <p> {title}</p>
-        <p>{readableDate}</p>
+        <p>{release_date}</p>
 
         <> {tagline}</>
       </div>
