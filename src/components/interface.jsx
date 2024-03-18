@@ -40,7 +40,7 @@ const Interface = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResultsPage />} />
-        <Route path="/details/:id" element={<Details />} />
+        <Route path="/details/movie/:id" element={<Details />} />
       </Routes>
     </>
   );

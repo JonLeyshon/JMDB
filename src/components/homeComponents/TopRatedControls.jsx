@@ -1,17 +1,16 @@
 import { useDispatch } from "react-redux";
-import { setResultType } from "../../redux/movieSearchSlice";
 import { useState } from "react";
+import { setCurrentSelectionTR } from "../../redux/topRatedSlice";
 
-const SearchControls = () => {
+const TopRatedControls = () => {
   const dispatch = useDispatch();
   const [activeButton, setActiveButton] = useState("movie");
-  console.log(activeButton);
   return (
-    <div className="searchControls">
+    <>
       <button
         className={activeButton === "movie" ? "active" : ""}
         onClick={() => {
-          dispatch(setResultType("movie"));
+          dispatch(setCurrentSelectionTR("movie"));
           setActiveButton("movie");
         }}
       >
@@ -20,23 +19,14 @@ const SearchControls = () => {
       <button
         className={activeButton === "tv" ? "active" : ""}
         onClick={() => {
-          dispatch(setResultType("tv"));
+          dispatch(setCurrentSelectionTR("tv"));
           setActiveButton("tv");
         }}
       >
         TV
       </button>
-      <button
-        className={activeButton === "person" ? "active" : ""}
-        onClick={() => {
-          dispatch(setResultType("person"));
-          setActiveButton("person");
-        }}
-      >
-        People
-      </button>
-    </div>
+    </>
   );
 };
 
-export default SearchControls;
+export default TopRatedControls;

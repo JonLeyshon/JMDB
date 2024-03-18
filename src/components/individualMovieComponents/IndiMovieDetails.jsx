@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectIndividualMovieData } from "../../redux/individualMovieSlice";
 
 const IndiMovieDetails = (props) => {
-  console.log(props);
+  const data = useSelector(selectIndividualMovieData);
 
   const {
     backdrop_path,
@@ -13,9 +13,19 @@ const IndiMovieDetails = (props) => {
     poster_path,
     tagline,
     vote_average,
-  } = props;
+    release_date,
+  } = data;
 
-  return <>Movie Details</>;
+  return (
+    <>
+      <div className="IndiMovieContainer">
+        <p> {title}</p>
+        <p>{readableDate}</p>
+
+        <> {tagline}</>
+      </div>
+    </>
+  );
 };
 
 export default IndiMovieDetails;

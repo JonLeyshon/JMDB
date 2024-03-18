@@ -9,7 +9,7 @@ export const individualMovieSlice = createSlice({
   initialState,
   reducers: {
     setIndividualMovieData: (state, { payload }) => {
-      state.individualMovieData = payload.results;
+      state.individualMovieData = payload;
     },
   },
 });

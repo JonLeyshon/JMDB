@@ -13,7 +13,6 @@ const UserSearch = () => {
   const dispatch = useDispatch();
   const resultType = useSelector(selectResultType);
   const searchTerm = useSelector(selectSearchTerm);
-  console.log(resultType);
 
   const handleSearchData = async () => {
     const data = await getMoviesBySearch(searchTerm, resultType);

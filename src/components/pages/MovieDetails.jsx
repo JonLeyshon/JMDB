@@ -12,26 +12,23 @@ import IndiCastDetails from "../individualMovieComponents/IndiCastDetails";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
-  const movieData = useSelector(selectIndividualMovieData);
-  const [loading, setLoading] = useState(true);
 
   const handleIndividualData = async () => {
     const data = await getIndividualMovieData(urlID);
+    console.log(urlID);
     dispatch(setIndividualMovieData(data));
-    setLoading(false);
-    console.log(movieData);
   };
 
   useEffect(() => {
     handleIndividualData();
   }, [urlID]);
 
-  if (loading || !movieData) {
-    return <p>Loading...</p>;
-  }
+  // if (loading || !movieData) {
+  //   return <p>Loading...</p>;
+  // }
   return (
     <>
-      <IndiMovieDetails props={movieData} />
+      <IndiMovieDetails />
       <IndiCastDetails />
       <IndieMovieReviews />
     </>
