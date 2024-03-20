@@ -12,10 +12,12 @@ import IndiCastDetails from "../individualMovieComponents/IndiCastDetails";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
+  const indiMovieData = useSelector(selectIndividualMovieData);
 
   const handleIndividualData = async () => {
     const data = await getIndividualMovieData(urlID);
     console.log(urlID);
+    console.log(data);
     dispatch(setIndividualMovieData(data));
   };
 
@@ -23,16 +25,17 @@ const MovieDetails = () => {
     handleIndividualData();
   }, [urlID]);
 
-  // if (loading || !movieData) {
-  //   return <p>Loading...</p>;
-  // }
-  return (
-    <>
-      <IndiMovieDetails />
-      <IndiCastDetails />
-      <IndieMovieReviews />
-    </>
-  );
+  if (!indiMovieData) {
+    return "loading...";
+  } else {
+    return (
+      <>
+        <IndiMovieDetails />
+        <IndiCastDetails />
+        <IndieMovieReviews />
+      </>
+    );
+  }
 };
 
 export default MovieDetails;
