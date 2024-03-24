@@ -1,36 +1,31 @@
-import { useDispatch } from "react-redux";
-import { setResultType } from "../../redux/movieSearchSlice";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectResultType, setResultType } from "../../redux/movieSearchSlice";
 
 const SearchControls = () => {
   const dispatch = useDispatch();
-  const [activeButton, setActiveButton] = useState("movie");
-  console.log(activeButton);
+  const currentSelection = useSelector(selectResultType);
   return (
     <div className="searchControls">
       <button
-        className={activeButton === "movie" ? "active" : ""}
+        className={currentSelection === "movie" ? "active" : ""}
         onClick={() => {
           dispatch(setResultType("movie"));
-          setActiveButton("movie");
         }}
       >
         Movies
       </button>
       <button
-        className={activeButton === "tv" ? "active" : ""}
+        className={currentSelection === "tv" ? "active" : ""}
         onClick={() => {
           dispatch(setResultType("tv"));
-          setActiveButton("tv");
         }}
       >
         TV
       </button>
       <button
-        className={activeButton === "person" ? "active" : ""}
+        className={currentSelection === "person" ? "active" : ""}
         onClick={() => {
           dispatch(setResultType("person"));
-          setActiveButton("person");
         }}
       >
         People

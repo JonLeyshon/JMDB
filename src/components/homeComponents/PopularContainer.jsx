@@ -13,7 +13,7 @@ const PopularContainer = () => {
         <PopularControls />
         <div className="movieContainerDiv">
           {popularData.map((item) => {
-            return <PopularChild {...item} />;
+            return <PopularChild key={item.id} {...item} />;
           })}
         </div>
       </>

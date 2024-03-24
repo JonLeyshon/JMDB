@@ -86,4 +86,39 @@ main {
 .titleDetails {
   display: flex;
   font-size: 16px;
+}
+
+.castContainer {
+  display: flex;
+  overflow: scroll;
+  width: 100vw;
+}
+.castContainer .indiActorContainer {
+  padding: 0 10px;
+}
+.castContainer .indiActorContainer img {
+  width: 100px;
+  border-radius: 10px;
+}
+.castContainer .indiActorContainer .character {
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.biographyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.biographyContainer img {
+  width: 300px;
+  border-radius: 40px;
+}
+
+.singleCreditContainer {
+  padding: 0 10px;
+}
+.singleCreditContainer img {
+  width: 100px;
+  border-radius: 5px;
 }/*# sourceMappingURL=JMDB.css.map */

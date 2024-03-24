@@ -15,6 +15,9 @@ const UserSearch = () => {
   const searchTerm = useSelector(selectSearchTerm);
 
   const handleSearchData = async () => {
+    if (!searchTerm || !searchTerm.length) {
+      return;
+    }
     const data = await getMoviesBySearch(searchTerm, resultType);
     dispatch(setMovieSearchData(data));
   };
@@ -35,15 +38,9 @@ const UserSearch = () => {
           value={searchTerm}
         />
 
-        <Link to="/search">
-          <button
-            onClick={() => {
-              handleSearchData();
-            }}
-          >
-            Search
-          </button>
-        </Link>
+        <button>
+          <Link to="/search">search</Link>
+        </button>
       </div>
     </>
   );

@@ -1,36 +1,36 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setCurrentSelectionPopular } from "../../redux/PopularDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCurrentSelectionPoular,
+  setCurrentSelectionPopular,
+} from "../../redux/PopularDataSlice";
 
 const PopularControls = () => {
-  const [activeButton, setActiveButton] = useState("movie");
+  const currentSelection = useSelector(selectCurrentSelectionPoular);
   const dispatch = useDispatch();
   return (
     <>
       <div className="PopularControls">
         <button
-          className={activeButton === "movie" ? "active" : ""}
+          className={currentSelection === "movie" ? "active" : ""}
           onClick={() => {
             dispatch(setCurrentSelectionPopular("movie"));
-            setActiveButton("movie");
           }}
         >
           Movies
         </button>
         <button
-          className={activeButton === "tv" ? "active" : ""}
+          className={currentSelection === "tv" ? "active" : ""}
           onClick={() => {
             dispatch(setCurrentSelectionPopular("tv"));
-            setActiveButton("tv");
           }}
         >
           TV
         </button>
         <button
-          className={activeButton === "person" ? "active" : ""}
+          className={currentSelection === "person" ? "active" : ""}
           onClick={() => {
             dispatch(setCurrentSelectionPopular("person"));
-            setActiveButton("person");
           }}
         >
           People

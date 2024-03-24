@@ -31,3 +31,20 @@
   background-color: #81e291;
   color: #00242c;
 }
+
+.IndiMovieContainer {
+  h2 {
+    text-align: center;
+  }
+  .indiMoviePoster {
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    background-position-x: center;
+    img {
+      width: 160px;
+    }
+  }
+}

@@ -49,10 +49,60 @@ export const getTopRatedData = async (selection) => {
   }
 };
 
-export const getIndividualMovieData = async (id) => {
+export const getIndividualMediaData = async (id, selection) => {
   try {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}`,
+      `https://api.themoviedb.org/3/${selection}/${id}`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("You have an error with API", error);
+  }
+};
+
+export const getIndividualCast = async (id, selection) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/${selection}/${id}/credits`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("You have an error with API", error);
+  }
+};
+
+export const getIndividualTvData = async (id) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/tv/${id}/credits`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("You have an error with API", error);
+  }
+};
+
+export const getCreditsData = async (id, selection) => {
+  try {
+    const { data } = await axios.get(
+      `
+     
+https://api.themoviedb.org/3/person/${id}/${selection}_credits`,
       {
         headers: {
           Authorization: APIKEY,

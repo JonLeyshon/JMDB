@@ -15,7 +15,9 @@ const PopularChild = (props) => {
     currentSelection === "movie" || currentSelection === "tv"
       ? movieImage
       : personImage;
+
   let detailsLink;
+
   switch (currentSelection) {
     case "movie":
       detailsLink = "/details/movie/";

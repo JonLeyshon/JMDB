@@ -1,26 +1,26 @@
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { setCurrentSelectionTR } from "../../redux/topRatedSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectcurrentSelectionTR,
+  setCurrentSelectionTR,
+} from "../../redux/topRatedSlice";
 
 const TopRatedControls = () => {
   const dispatch = useDispatch();
-  const [activeButton, setActiveButton] = useState("movie");
+  const currentSelection = useSelector(selectcurrentSelectionTR);
   return (
     <>
       <button
-        className={activeButton === "movie" ? "active" : ""}
+        className={currentSelection === "movie" ? "active" : ""}
         onClick={() => {
           dispatch(setCurrentSelectionTR("movie"));
-          setActiveButton("movie");
         }}
       >
         Movies
       </button>
       <button
-        className={activeButton === "tv" ? "active" : ""}
+        className={currentSelection === "tv" ? "active" : ""}
         onClick={() => {
           dispatch(setCurrentSelectionTR("tv"));
-          setActiveButton("tv");
         }}
       >
         TV

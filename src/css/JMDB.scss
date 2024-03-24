@@ -86,3 +86,38 @@ main {
   display: flex;
   font-size: 16px;
 }
+
+.castContainer {
+  display: flex;
+  overflow: scroll;
+  width: 100vw;
+  .indiActorContainer {
+    padding: 0 10px;
+    img {
+      width: 100px;
+      border-radius: 10px;
+    }
+    .character {
+      max-height: 80px;
+      overflow: hidden;
+    }
+  }
+}
+
+.biographyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 300px;
+    border-radius: 40px;
+  }
+}
+
+.singleCreditContainer {
+  padding: 0 10px;
+  img {
+    width: 100px;
+    border-radius: 5px;
+  }
+}

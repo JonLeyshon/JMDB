@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  individualMovieData: [],
+  // individualMovieData: [],
+  // individualMovieCast: [],
 };
 
 export const individualMovieSlice = createSlice({
@@ -11,12 +12,19 @@ export const individualMovieSlice = createSlice({
     setIndividualMovieData: (state, { payload }) => {
       state.individualMovieData = payload;
     },
+    setIndividualMovieCast: (state, { payload }) => {
+      state.individualMovieCast = payload;
+    },
   },
 });
 
-export const { setIndividualMovieData } = individualMovieSlice.actions;
+export const { setIndividualMovieData, setIndividualMovieCast } =
+  individualMovieSlice.actions;
 
 export const selectIndividualMovieData = (state) =>
   state.individualMovie.individualMovieData;
+
+export const selectIndividualMovieCast = (state) =>
+  state.individualMovie.individualMovieCast;
 
 export default individualMovieSlice.reducer;

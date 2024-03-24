@@ -10,9 +10,11 @@ import {
   setTopRatedData,
 } from "../redux/topRatedSlice.js";
 import { Routes, Route } from "react-router-dom";
-import SearchResultsPage from "./searchComponents/SearchResults.jsx";
+import SearchResultsPage from "./searchComponents/SearchResultsPage.jsx";
 import Home from "./pages/Home.jsx";
-import Details from "./pages/MovieDetails.jsx";
+import MovieDetails from "./pages/MovieDetails.jsx";
+import PersonDetails from "./pages/PersonDetails.jsx";
+import TVDetails from "./pages/TVDetails.jsx";
 
 const Interface = () => {
   const dispatch = useDispatch();
@@ -40,7 +42,9 @@ const Interface = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<SearchResultsPage />} />
-        <Route path="/details/movie/:id" element={<Details />} />
+        <Route path="/details/movie/:id" element={<MovieDetails />} />
+        <Route path="/details/person/:id" element={<PersonDetails />} />
+        <Route path="/details/tv/:id" element={<TVDetails />} />
       </Routes>
     </>
   );

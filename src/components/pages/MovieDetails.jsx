@@ -1,31 +1,38 @@
-import { urlID } from "../utils/miscVariables";
-import { getIndividualMovieData } from "../utils/getDataUtils";
+import {
+  getIndividualMediaData,
+  getIndividualCast,
+} from "../utils/getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  selectIndividualMovieCast,
   selectIndividualMovieData,
+  setIndividualMovieCast,
   setIndividualMovieData,
 } from "../../redux/individualMovieSlice";
-import { useEffect, useState } from "react";
-import IndiMovieDetails from "../individualMovieComponents/indiMovieDetails";
-import IndieMovieReviews from "../individualMovieComponents/IndiMovieReviews";
-import IndiCastDetails from "../individualMovieComponents/IndiCastDetails";
+import { useEffect } from "react";
+import IndiMovieDetails from "../individualMediaComponents/indiMovieDetails";
+import IndieMovieReviews from "../individualMediaComponents/IndiMovieReviews";
+import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
+import { useParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const indiMovieData = useSelector(selectIndividualMovieData);
+  const indiMovieCast = useSelector(selectIndividualMovieCast);
 
   const handleIndividualData = async () => {
-    const data = await getIndividualMovieData(urlID);
-    console.log(urlID);
-    console.log(data);
+    const data = await getIndividualMediaData(id, "movie");
+    const cast = await getIndividualCast(id, "movie");
     dispatch(setIndividualMovieData(data));
+    dispatch(setIndividualMovieCast(cast));
   };
 
   useEffect(() => {
     handleIndividualData();
-  }, [urlID]);
-
-  if (!indiMovieData) {
+  }, [id]);
+  console.log(indiMovieCast, indiMovieData);
+  if (!indiMovieData || !indiMovieCast) {
     return "loading...";
   } else {
     return (
