@@ -114,3 +114,19 @@ https://api.themoviedb.org/3/person/${id}/${selection}_credits`,
     console.log("You have an error with API", error);
   }
 };
+
+export const getReviewsData = async (id, selection) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/${selection}/${id}/reviews`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("You have an error with API", error);
+  }
+};

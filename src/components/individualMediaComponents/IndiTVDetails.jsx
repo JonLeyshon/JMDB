@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectIndividualTVData } from "../../redux/individualTVSlice";
+import { selectIndividualMediaData } from "../../redux/individualMediaSlice";
 
 const IndiTVDetails = () => {
-  const TVData = useSelector(selectIndividualTVData);
+  const TVData = useSelector(selectIndividualMediaData);
   const {
     name,
     poster_path,

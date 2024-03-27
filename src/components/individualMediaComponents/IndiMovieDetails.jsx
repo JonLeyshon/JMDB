@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectIndividualMovieData } from "../../redux/individualMovieSlice";
+import { selectIndividualMediaData } from "../../redux/individualMediaSlice";
 
 const IndiMovieDetails = () => {
-  const data = useSelector(selectIndividualMovieData);
+  const data = useSelector(selectIndividualMediaData);
 
   const {
     backdrop_path,

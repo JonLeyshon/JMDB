@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectIndividualMovieCast } from "../../redux/individualMovieSlice";
+import { selectIndividualMediaCast } from "../../redux/individualMediaSlice";
 import IndiCastActors from "./indiCastActors";
 const IndiCastDetails = () => {
-  const { cast } = useSelector(selectIndividualMovieCast);
+  const { cast } = useSelector(selectIndividualMediaCast);
 
   if (cast && cast.length > 0) {
     return (

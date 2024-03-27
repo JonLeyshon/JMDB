@@ -5,6 +5,7 @@ import topRatedReducer from "./topRatedSlice";
 import individualMovieReducer from "./individualMovieSlice";
 import individualActorReducer from "./individualActorSlice";
 import individualTVReducer from "./individualTVSlice";
+import individualMediaReducer from "./individualMediaSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     individualMovie: individualMovieReducer,
     individualTV: individualTVReducer,
     individualActor: individualActorReducer,
+    individualMedia: individualMediaReducer,
   },
 });

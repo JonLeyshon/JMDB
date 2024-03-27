@@ -1,31 +1,35 @@
 import {
   getIndividualMediaData,
   getIndividualCast,
+  getReviewsData,
 } from "../utils/getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectIndividualMovieCast,
-  selectIndividualMovieData,
-  setIndividualMovieCast,
-  setIndividualMovieData,
-} from "../../redux/individualMovieSlice";
+  selectIndividualMediaCast,
+  selectIndividualMediaData,
+  setIndividualMediaCast,
+  setIndividualMediaData,
+  setIndividualMediaReviews,
+} from "../../redux/individualMediaSlice";
 import { useEffect } from "react";
 import IndiMovieDetails from "../individualMediaComponents/indiMovieDetails";
-import IndieMovieReviews from "../individualMediaComponents/IndiMovieReviews";
 import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
 import { useParams } from "react-router-dom";
+import IndieMediaReviews from "../individualMediaComponents/IndiMediaReviews";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const indiMovieData = useSelector(selectIndividualMovieData);
-  const indiMovieCast = useSelector(selectIndividualMovieCast);
+  const indiMovieData = useSelector(selectIndividualMediaData);
+  const indiMovieCast = useSelector(selectIndividualMediaCast);
 
   const handleIndividualData = async () => {
     const data = await getIndividualMediaData(id, "movie");
     const cast = await getIndividualCast(id, "movie");
-    dispatch(setIndividualMovieData(data));
-    dispatch(setIndividualMovieCast(cast));
+    const reviews = await getReviewsData(id, "movie");
+    dispatch(setIndividualMediaData(data));
+    dispatch(setIndividualMediaCast(cast));
+    dispatch(setIndividualMediaReviews(reviews));
   };
 
   useEffect(() => {
@@ -39,7 +43,7 @@ const MovieDetails = () => {
       <>
         <IndiMovieDetails />
         <IndiCastDetails />
-        <IndieMovieReviews />
+        <IndieMediaReviews />
       </>
     );
   }
