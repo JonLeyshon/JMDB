@@ -81,22 +81,6 @@ export const getIndividualCast = async (id, selection) => {
   }
 };
 
-export const getIndividualTvData = async (id) => {
-  try {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/tv/${id}/credits`,
-      {
-        headers: {
-          Authorization: APIKEY,
-        },
-      }
-    );
-    return data;
-  } catch (error) {
-    console.log("You have an error with API", error);
-  }
-};
-
 export const getCreditsData = async (id, selection) => {
   try {
     const { data } = await axios.get(

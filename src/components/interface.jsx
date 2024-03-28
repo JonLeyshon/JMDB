@@ -10,7 +10,7 @@ import {
   setTopRatedData,
 } from "../redux/topRatedSlice.js";
 import { Routes, Route } from "react-router-dom";
-import SearchResultsPage from "./searchComponents/SearchResultsPage.jsx";
+import SearchResultsPage from "./pages/SearchResultsPage.jsx";
 import Home from "./pages/Home.jsx";
 import MovieDetails from "./pages/MovieDetails.jsx";
 import PersonDetails from "./pages/PersonDetails.jsx";

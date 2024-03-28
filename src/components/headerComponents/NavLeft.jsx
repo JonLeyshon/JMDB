@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NavLeft = () => {
   return (
-    <Link to="/">
+    <Link to="/" className="col">
       <img src="/Images/cover.png" alt="Logo Image" />
     </Link>
   );
