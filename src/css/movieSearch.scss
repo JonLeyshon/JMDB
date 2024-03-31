@@ -1,6 +1,31 @@
-.searchControls {
+.searchTools {
   display: flex;
   justify-content: center;
+  padding: 1rem 1px;
+  color: white;
+}
+
+.searchTools button {
+  border-radius: 24px;
+  background-color: var(--main-green);
+  padding: 17px;
+  position: relative;
+  left: -87px;
+  border: 3px solid black;
+  font-weight: 700;
+
+  /* font-size: 15px; */
+}
+.searchTools input {
+  width: 82vw;
+  padding: 1rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 24px;
+}
+
+.searchControls {
+  display: flex;
   margin: 10px;
   button {
     border-radius: 19px;
@@ -19,12 +44,8 @@
   }
 }
 
-.knownForImages {
-  display: flex;
-  justify-content: flex-start;
-  img {
-    width: 75px;
-  }
+.controls {
+  padding-left: 10px;
 }
 
 .active {
@@ -32,19 +53,24 @@
   color: #00242c;
 }
 
-.IndiMovieContainer {
-  h2 {
-    text-align: center;
+.searchResultChild {
+  display: flex;
+  align-items: center;
+  margin: 15px 4px;
+  background-color: #00242c;
+  color: white;
+  border-radius: 24px;
+  font-size: 12px;
+  width: 98vw;
+  .movieDetails {
+    font-size: 12px;
+    padding: 0px 19px;
   }
-  .indiMoviePoster {
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30vh;
-    background-position-x: center;
-    img {
-      width: 160px;
-    }
+  img {
+    width: 150px;
+    padding: 10px;
+  }
+  h3 {
+    font-size: 18px;
   }
 }

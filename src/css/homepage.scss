@@ -1,0 +1,29 @@
+:root {
+  --main-blue: #00242c;
+  --main-green: #81e291;
+  --light-text-color: white;
+  --dark-text-color: #00242c;
+}
+
+.movieContainerDiv {
+  display: flex;
+  overflow: scroll;
+  width: 100vw;
+}
+
+.movieChild {
+  margin: 10px;
+  img {
+    width: 250px;
+    border-radius: 10px;
+  }
+}
+
+.movieContainerTitle {
+  margin: 0px;
+  font-size: 18px;
+}
+
+h2.movieContainerTitle {
+  padding: 10px;
+}

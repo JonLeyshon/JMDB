@@ -3,6 +3,7 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 3px 10px;
+  width: 96vw;
 }
 .footer-left {
   color: var(--main-green);

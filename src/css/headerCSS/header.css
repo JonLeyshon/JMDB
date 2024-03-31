@@ -3,14 +3,10 @@ header {
   color: var(--light-text-color);
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   width: 100vw;
-  a {
-    display: flex;
-  }
 }
-header img {
-  width: 180px;
+header .headerLogo {
+  width: 160px;
 }
 header ul {
   display: flex;
@@ -18,4 +14,4 @@ header ul {
   align-items: center;
   width: 100%;
   list-style: none;
-} /*# sourceMappingURL=header.css.map */
+}/*# sourceMappingURL=header.css.map */

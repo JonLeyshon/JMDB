@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import IndiTVDetails from "../individualMediaComponents/indiTVDetails";
 import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
 import IndieMediaReviews from "../individualMediaComponents/IndiMediaReviews";
+import IndiMediaTrailer from "../individualMediaComponents/IndiMediaTrailer";
 
 const TVDetails = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,8 @@ const TVDetails = () => {
       <>
         <IndiTVDetails />
         <IndiCastDetails />
-        {/* <IndieMediaReviews /> */}
+        <IndieMediaReviews />
+        {/* <IndiMediaTrailer /> */}
       </>
     );
   }

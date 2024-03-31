@@ -8,7 +8,7 @@ const TopRatedControls = () => {
   const dispatch = useDispatch();
   const currentSelection = useSelector(selectcurrentSelectionTR);
   return (
-    <>
+    <div className="controls">
       <button
         className={currentSelection === "movie" ? "active" : ""}
         onClick={() => {
@@ -25,7 +25,7 @@ const TopRatedControls = () => {
       >
         TV
       </button>
-    </>
+    </div>
   );
 };
 

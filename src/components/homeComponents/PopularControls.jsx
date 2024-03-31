@@ -10,7 +10,7 @@ const PopularControls = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="PopularControls">
+      <div className="controls">
         <button
           className={currentSelection === "movie" ? "active" : ""}
           onClick={() => {

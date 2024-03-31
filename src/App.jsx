@@ -5,6 +5,8 @@ import "./css/JMDB.css";
 import "./css/headerCSS/header.css";
 import "./css/footer.css";
 import "./css/movieSearch.css";
+import "./css/homepage.css";
+import "./css/individualMedia.css";
 import Interface from "./components/interface";
 import Header from "./components/headerComponents/Header";
 import Footer from "./components/footerComponents/Footer";

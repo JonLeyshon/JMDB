@@ -130,3 +130,19 @@ export const getReviewsData = async (id, selection) => {
     console.log("You have an error with API", error);
   }
 };
+
+export const getIndividualMediaVideos = async (id, selection) => {
+  try {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/${selection}/${id}/videos`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+    return data;
+  } catch (error) {
+    console.log("You have an error with API", error);
+  }
+};

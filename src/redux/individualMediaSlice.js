@@ -18,6 +18,9 @@ export const individualMediaSlice = createSlice({
     setIndividualMediaReviews: (state, { payload }) => {
       state.individualMediaReviews = payload.results;
     },
+    setIndividualMediaVideos: (state, { payload }) => {
+      state.individualMediaVideos = payload.results;
+    },
   },
 });
 
@@ -25,6 +28,7 @@ export const {
   setIndividualMediaData,
   setIndividualMediaCast,
   setIndividualMediaReviews,
+  setIndividualMediaVideos,
 } = individualMediaSlice.actions;
 
 export const selectIndividualMediaData = (state) =>
@@ -35,5 +39,8 @@ export const selectIndividualMediaCast = (state) =>
 
 export const selectIndividualMediaReviews = (state) =>
   state.individualMedia.individualMediaReviews;
+
+export const selectIndividualMediaVideos = (state) =>
+  state.individualMedia.individualMediaVideos;
 
 export default individualMediaSlice.reducer;

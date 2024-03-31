@@ -7,8 +7,13 @@ const PopularChild = (props) => {
     props;
   const currentSelection = useSelector(selectCurrentSelectionPoular);
 
-  const movieImage = `https://image.tmdb.org/t/p/original${poster_path}`;
-  const personImage = `https://image.tmdb.org/t/p/original${profile_path}`;
+  const movieImage = poster_path
+    ? `https://image.tmdb.org/t/p/original${poster_path}`
+    : "../../../public/images/No-image-Placeholder.svg.png";
+  const personImage = profile_path
+    ? `https://image.tmdb.org/t/p/original${profile_path}`
+    : "../../../public/images/No-image-Placeholder.svg.png";
+
   const readableDate = new Date(release_date).toDateString();
 
   const imageSrc =

@@ -2,6 +2,7 @@ import {
   getIndividualMediaData,
   getIndividualCast,
   getReviewsData,
+  getIndividualMediaVideos,
 } from "../utils/getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,12 +11,14 @@ import {
   setIndividualMediaCast,
   setIndividualMediaData,
   setIndividualMediaReviews,
+  setIndividualMediaVideos,
 } from "../../redux/individualMediaSlice";
 import { useEffect } from "react";
 import IndiMovieDetails from "../individualMediaComponents/indiMovieDetails";
 import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
 import { useParams } from "react-router-dom";
 import IndieMediaReviews from "../individualMediaComponents/IndiMediaReviews";
+import IndiMediaTrailer from "../individualMediaComponents/IndiMediaTrailer";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -27,9 +30,11 @@ const MovieDetails = () => {
     const data = await getIndividualMediaData(id, "movie");
     const cast = await getIndividualCast(id, "movie");
     const reviews = await getReviewsData(id, "movie");
+    const videos = await getIndividualMediaVideos(id, "movie");
     dispatch(setIndividualMediaData(data));
     dispatch(setIndividualMediaCast(cast));
     dispatch(setIndividualMediaReviews(reviews));
+    dispatch(setIndividualMediaVideos(videos));
   };
 
   useEffect(() => {
@@ -44,6 +49,7 @@ const MovieDetails = () => {
         <IndiMovieDetails />
         <IndiCastDetails />
         <IndieMediaReviews />
+        <IndiMediaTrailer />
       </>
     );
   }
