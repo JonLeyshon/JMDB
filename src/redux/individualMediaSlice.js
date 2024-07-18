@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   // individualMovieData: [],
   // individualMovieCast: [],
+  individualMediaVideos: [],
 };
 
 export const individualMediaSlice = createSlice({
@@ -13,7 +14,7 @@ export const individualMediaSlice = createSlice({
       state.individualMediaData = payload;
     },
     setIndividualMediaCast: (state, { payload }) => {
-      state.individualMediaCast = payload;
+      state.individualMediaCast = payload.cast;
     },
     setIndividualMediaReviews: (state, { payload }) => {
       state.individualMediaReviews = payload.results;

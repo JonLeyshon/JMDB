@@ -18,6 +18,8 @@ import IndiTVDetails from "../individualMediaComponents/indiTVDetails";
 import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
 import IndieMediaReviews from "../individualMediaComponents/IndiMediaReviews";
 import IndiMediaTrailer from "../individualMediaComponents/IndiMediaTrailer";
+import Spinner from "../Spinner";
+import LoadingPage from "./Loading";
 
 const TVDetails = () => {
   const dispatch = useDispatch();
@@ -27,6 +29,7 @@ const TVDetails = () => {
   const indiTVReviews = useSelector(selectIndividualMediaReviews);
 
   const handleTvData = async () => {
+    dispatch(setIndividualMediaData(""));
     const data = await getIndividualMediaData(id, "tv");
     const cast = await getIndividualCast(id, "tv");
     const reviews = await getReviewsData(id, "tv");
@@ -40,7 +43,7 @@ const TVDetails = () => {
   }, [id]);
 
   if (!indiTVData || !indiTVCast || !indiTVReviews) {
-    return "Loading...";
+    return <LoadingPage />;
   } else {
     return (
       <>

@@ -11,7 +11,9 @@ import UserSearchPerson from "./UserSearchPerson";
 const UserSearchContainer = () => {
   const uSData = useSelector(selectMovieSearchData);
   const mediaType = useSelector(selectResultType);
-
+  if (uSData.length === 0) {
+    return <p> We Found no results try another search</p>;
+  }
   if (uSData && uSData.length > 0) {
     if (mediaType === "movie") {
       return uSData.map((item) => {

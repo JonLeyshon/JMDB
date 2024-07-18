@@ -7,10 +7,13 @@
 }
 
 //Movie
+.movieContainerDiv {
+  padding: 0 5vw;
+}
 .IndiMovieContainer {
   position: relative;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   min-height: 50vh;
   display: flex;
   p {
@@ -56,18 +59,25 @@
 //cast
 
 .castContainer {
-  display: flex;
-  overflow: scroll;
-  width: 100vw;
+  padding: 10px 5vw;
   .indiActorContainer {
-    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-around;
+    height: 340px;
+
     img {
       width: 100px;
+      height: 150px;
       border-radius: 10px;
     }
     .character {
       max-height: 80px;
       overflow: hidden;
+    }
+    p {
+      height: 50px;
     }
   }
 }
@@ -77,6 +87,7 @@
 .singleReview {
   display: flex;
   flex-direction: column;
+  padding: 0 10vw;
   // max-height: 40vh;
   overflow: hidden;
   text-align: center;
@@ -98,19 +109,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
-    width: 300px;
-    border-radius: 40px;
-  }
-}
+  padding: 5vw 10vw;
+  border-radius: 10px;
 
-.singleCreditContainer {
-  padding: 0 10px;
+  .bioOverview {
+    text-align: center;
+  }
+  p {
+    padding: 20px 0;
+  }
   img {
-    width: 100px;
+    width: 220px;
     border-radius: 5px;
   }
 }
+
+.indiMediaTitle {
+  text-align: center;
+  margin: 3rem auto;
+  width: fit-content;
+  padding: 0px 5px;
+  border-left: 5px solid #81e291;
+}
+
+.singleCreditContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 340px;
+  img {
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+  }
+  p {
+    height: 30px;
+  }
+  .character {
+    font-weight: 600;
+  }
+}
+
+//Indi person credits
 
 //Trailer
 
@@ -128,4 +168,21 @@ svg.icon {
   padding: 10px;
   margin: 10px;
   border-radius: 18px;
+}
+
+.indiMediaTitle {
+  text-align: center;
+}
+
+//MEDIA QUERIES
+
+@media (min-width: 650px) {
+  .biographyContainer {
+    flex-direction: row;
+    justify-content: space-around;
+
+    p {
+      padding: 30px;
+    }
+  }
 }

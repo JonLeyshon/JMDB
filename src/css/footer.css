@@ -1,9 +1,11 @@
 footer {
   background-color: var(--main-blue);
+}
+.footerTop {
   display: flex;
-  justify-content: space-between;
-  padding: 3px 10px;
-  width: 96vw;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
 }
 .footer-left {
   color: var(--main-green);
@@ -18,4 +20,14 @@ footer {
 
 .footer-right {
   color: var(--light-text-color);
+  padding: 0 20px;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  button {
+    background-color: var(--main-green);
+  }
 }

@@ -33,6 +33,24 @@ export const getPopularData = async (selection) => {
   }
 };
 
+// export const getFeaturedFilm = async () => {
+//   const randomNum = Math.floor(Math.random() * 19);
+//   try {
+//     const { data } = await axios.get(
+//       `https://api.themoviedb.org/3/movie/popular`,
+//       {
+//         headers: {
+//           Authorization: APIKEY,
+//         },
+//       }
+//     );
+
+//     return data.results[randomNum];
+//   } catch (error) {
+//     console.log("You have an error with API", error);
+//   }
+// };
+
 export const getTopRatedData = async (selection) => {
   try {
     const { data } = await axios.get(
@@ -144,5 +162,36 @@ export const getIndividualMediaVideos = async (id, selection) => {
     return data;
   } catch (error) {
     console.log("You have an error with API", error);
+  }
+};
+
+export const getBanner = async () => {
+  try {
+    const pMResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+
+    const pTVResponse = await axios.get(
+      `https://api.themoviedb.org/3/tv/popular`,
+      {
+        headers: {
+          Authorization: APIKEY,
+        },
+      }
+    );
+
+    const combinedData = [
+      ...pMResponse.data.results,
+      ...pTVResponse.data.results,
+    ];
+    return combinedData;
+  } catch (error) {
+    console.log("You have an error with API", error);
+    return [];
   }
 };

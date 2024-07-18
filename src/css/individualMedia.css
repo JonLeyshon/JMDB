@@ -7,10 +7,14 @@
   width: 75px;
 }
 
+.movieContainerDiv {
+  padding: 0 5vw;
+}
+
 .IndiMovieContainer {
   position: relative;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   min-height: 50vh;
   display: flex;
 }
@@ -53,25 +57,31 @@
 }
 
 .castContainer {
-  display: flex;
-  overflow: scroll;
-  width: 100vw;
+  padding: 10px 5vw;
 }
 .castContainer .indiActorContainer {
-  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 340px;
 }
 .castContainer .indiActorContainer img {
   width: 100px;
+  height: 150px;
   border-radius: 10px;
 }
 .castContainer .indiActorContainer .character {
   max-height: 80px;
   overflow: hidden;
 }
+.castContainer .indiActorContainer p {
+  height: 50px;
+}
 
 .singleReview {
   display: flex;
   flex-direction: column;
+  padding: 0 10vw;
   overflow: hidden;
   text-align: center;
 }
@@ -91,18 +101,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5vw 10vw;
+  border-radius: 10px;
+}
+.biographyContainer .bioOverview {
+  text-align: center;
+}
+.biographyContainer p {
+  padding: 20px 0;
 }
 .biographyContainer img {
-  width: 300px;
-  border-radius: 40px;
+  width: 220px;
+  border-radius: 5px;
+}
+
+.indiMediaTitle {
+  text-align: center;
+  margin: 3rem auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px 5px;
+  border-left: 5px solid #81e291;
 }
 
 .singleCreditContainer {
-  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 340px;
 }
 .singleCreditContainer img {
   width: 100px;
+  height: 150px;
   border-radius: 5px;
+}
+.singleCreditContainer p {
+  height: 30px;
+}
+.singleCreditContainer .character {
+  font-weight: 600;
 }
 
 .trailerContainer {
@@ -119,4 +156,18 @@ svg.icon {
   padding: 10px;
   margin: 10px;
   border-radius: 18px;
+}
+
+.indiMediaTitle {
+  text-align: center;
+}
+
+@media (min-width: 650px) {
+  .biographyContainer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .biographyContainer p {
+    padding: 30px;
+  }
 }/*# sourceMappingURL=individualMedia.css.map */

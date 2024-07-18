@@ -1,9 +1,12 @@
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useSelector } from "react-redux";
 import { selectPopularData } from "../../redux/PopularDataSlice";
 import PopularChild from "./PopularChild";
 import PopularControls from "./PopularControls";
+import { responsiveLarge } from "../utils/CarouselVariables";
 
-const PopularContainer = () => {
+const PopularCarousel = () => {
   const popularData = useSelector(selectPopularData);
 
   if (popularData && popularData.length > 0) {
@@ -11,14 +14,14 @@ const PopularContainer = () => {
       <>
         <h2 className="movieContainerTitle"> Popular Right Now </h2>
         <PopularControls />
-        <div className="movieContainerDiv">
+        <Carousel responsive={responsiveLarge}>
           {popularData.map((item) => {
             return <PopularChild key={item.id} {...item} />;
           })}
-        </div>
+        </Carousel>
       </>
     );
   }
 };
 
-export default PopularContainer;
+export default PopularCarousel;

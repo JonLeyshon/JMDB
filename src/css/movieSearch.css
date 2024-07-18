@@ -1,7 +1,9 @@
 .searchTools {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 1rem 1px;
+  align-items: center;
+  padding: 10px 1px;
   color: white;
 }
 
@@ -9,43 +11,24 @@
   border-radius: 24px;
   background-color: var(--main-green);
   padding: 17px;
-  position: relative;
-  left: -87px;
   border: 3px solid black;
   font-weight: 700;
   /* font-size: 15px; */
 }
 
 .searchTools input {
-  width: 82vw;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   font-size: 0.9rem;
   font-weight: 600;
   border-radius: 24px;
-}
-
-.searchControls {
-  display: flex;
-  margin: 10px;
-}
-.searchControls button {
-  border-radius: 19px;
-  border: 1px solid transparent;
-  padding: 10px 40px;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: rgba(0, 36, 44, 0.87);
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-.searchControls .active {
-  background-color: #81e291;
-  color: #00242c;
+  margin-bottom: 10px;
+  min-width: 70vw;
 }
 
 .controls {
-  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 .active {
@@ -67,10 +50,18 @@
   font-size: 12px;
   padding: 0px 19px;
 }
+.searchResultChild .movieDetails p {
+  text-align: left;
+}
 .searchResultChild img {
   width: 150px;
   padding: 10px;
 }
 .searchResultChild h3 {
   font-size: 18px;
+}
+
+.searchControls {
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=movieSearch.css.map */

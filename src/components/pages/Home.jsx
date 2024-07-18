@@ -1,12 +1,17 @@
 import UserSearch from "../searchComponents/UserSearch";
-import PopularContainer from "../homeComponents/PopularContainer";
-import TopRatedContainer from "../homeComponents/topRatedContainer";
+import PopularCarousel from "../homeComponents/PopularCarousel";
+import TopRatedCarousel from "../homeComponents/topRatedCarousel";
+import Banner from "../homeComponents/Banner";
+import FeaturedFilm from "../homeComponents/FeaturedFilm";
 const Home = () => {
   return (
     <>
-      <UserSearch />
-      <PopularContainer />
-      <TopRatedContainer />
+      <Banner />
+      <div className="paddedMain">
+        <PopularCarousel />
+        <TopRatedCarousel />
+        <FeaturedFilm />
+      </div>
     </>
   );
 };

@@ -10,12 +10,15 @@ import {
 import { useEffect } from "react";
 import IndiPersonDetails from "../individualMediaComponents/IndiPersonDetails";
 import Credits from "../individualMediaComponents/Credits";
+import LoadingPage from "./Loading";
+
 const PersonDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const data = useSelector(selectIndividualActorData);
 
   const handleIndividualActorData = async () => {
+    dispatch(setIndividualActorData(""));
     const data = await getIndividualMediaData(id, "person");
     const movieCredits = await getCreditsData(id, "movie");
     const TVCredits = await getCreditsData(id, "tv");
@@ -28,7 +31,7 @@ const PersonDetails = () => {
     handleIndividualActorData();
   }, [id]);
   if (!data) {
-    return "Loading...";
+    return <LoadingPage />;
   } else {
     return (
       <>

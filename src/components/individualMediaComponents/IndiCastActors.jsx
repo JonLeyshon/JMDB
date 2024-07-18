@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+
 const IndiCastActors = (props) => {
   const { name, profile_path, character, id } = props;
   const profileImage = profile_path
@@ -6,11 +8,21 @@ const IndiCastActors = (props) => {
     : "../../../public/images/No-image-Placeholder.svg.png";
   return (
     <div className="indiActorContainer">
-      <Link to={"/details/person/" + id}>
+      <Link
+        to={"/details/person/" + id}
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content="Click to see this actor's page!"
+      >
         <img src={profileImage} alt={name} />
       </Link>
-      <p>{name}</p>
-      <p className="character">{character}</p>
+      <Tooltip id="my-tooltip" place="top" type="dark" effect="float" />
+      <p>
+        Actor: <b>{name}</b>
+      </p>
+      <p className="character">
+        {" "}
+        Character: <b>{character}</b>
+      </p>
     </div>
   );
 };
