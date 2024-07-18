@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectCurrentSelectionPoular } from "../../redux/PopularDataSlice";
 import { Link } from "react-router-dom";
-
+import { Tooltip } from "react-tooltip";
 const PopularChild = (props) => {
   const { title, poster_path, profile_path, vote_average, release_date, id } =
     props;
@@ -13,6 +13,11 @@ const PopularChild = (props) => {
   const personImage = profile_path
     ? `https://image.tmdb.org/t/p/original${profile_path}`
     : "../../../public/images/No-image-Placeholder.svg.png";
+
+  const titleOrName =
+    currentSelection === "person" || currentSelection === "tv"
+      ? props.name
+      : title;
 
   const readableDate = new Date(release_date).toDateString();
 
@@ -39,12 +44,15 @@ const PopularChild = (props) => {
 
   return (
     <div className="movieChild">
-      <Link to={detailsLink + id}>
+      <Link
+        to={detailsLink + id}
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content={titleOrName}
+      >
         <img src={imageSrc} alt={title} />
+
         <div className="MovieChildDetails">
-          {/* <p>{title}</p>
-          <p className="rating">{vote_average}</p>
-          <p>{readableDate}</p> */}
+          <Tooltip id="my-tooltip" place="bottom" type="dark" effect="float" />
         </div>
       </Link>
     </div>

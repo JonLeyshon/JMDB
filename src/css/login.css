@@ -1,0 +1,182 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 100px 0;
+}
+.loginContainer .loginCard {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 900px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+.loginContainer .loginCard:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+.loginContainer .loginCard .loginLeft,
+.loginContainer .loginCard .loginRight {
+  padding: 50px;
+  width: 50%;
+  text-align: center;
+}
+.loginContainer .loginCard .loginLeft h1,
+.loginContainer .loginCard .loginRight h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+.loginContainer .loginCard .loginLeft h2,
+.loginContainer .loginCard .loginRight h2 {
+  font-size: 2em;
+  font-weight: 600;
+}
+.loginContainer .loginCard .loginLeft h3,
+.loginContainer .loginCard .loginRight h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.loginContainer .loginCard .loginLeft {
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.loginContainer .loginCard .loginLeft form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+.loginContainer .loginCard .loginLeft form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+.loginContainer .loginCard .loginLeft form input:focus {
+  border-color: #81e291;
+  outline: none;
+}
+.loginContainer .loginCard .loginLeft form button {
+  padding: 12px 5px;
+  border: none;
+  border-radius: 5px;
+  background: #57b773;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.loginContainer .loginCard .loginLeft form button:hover {
+  background: #449a5a;
+  transform: translateY(-3px);
+}
+.loginContainer .loginCard .loginRight {
+  background: linear-gradient(135deg, #81e291 0%, #57b773 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .loginContainer .loginCard {
+    flex-direction: column;
+  }
+  .loginContainer .loginCard .loginLeft,
+  .loginContainer .loginCard .loginRight {
+    width: 90%;
+    padding: 30px;
+    align-items: center;
+  }
+}
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 100px 0;
+}
+
+.signUpCard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 500px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  padding: 50px;
+  text-align: center;
+}
+
+.signUpCard:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.signUpCard h2 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+.signUpForm label {
+  font-weight: 500;
+}
+
+.signUpForm input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.signUpForm input:focus {
+  border-color: #81e291;
+  outline: none;
+}
+
+.signUpForm button {
+  padding: 12px 5px;
+  border: none;
+  border-radius: 5px;
+  background: #57b773;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.signUpForm button:hover {
+  background: #449a5a;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .signUpCard {
+    width: 90%;
+    padding: 30px;
+  }
+}/*# sourceMappingURL=login.css.map */

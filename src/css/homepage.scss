@@ -5,17 +5,25 @@
   --dark-text-color: #00242c;
 }
 
-.movieContainerDiv {
-  display: flex;
-  overflow: scroll;
-  width: 100vw;
-}
-
 .movieChild {
   margin: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   img {
     width: 250px;
+    height: 375px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.movieChildSmall {
+  img {
+    width: 150px;
+    height: 225px;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -25,5 +33,149 @@
 }
 
 h2.movieContainerTitle {
-  padding: 10px;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.homepageBanner {
+  position: relative;
+  background-position: top;
+  background-size: cover;
+  color: white;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 36, 44, 0.7);
+  }
+
+  .bannerContent {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1,
+  h4 {
+    padding: 10px 20px;
+    z-index: 1;
+  }
+}
+
+.paddedMain {
+  padding: 0 8vw;
+}
+
+.featuredFilmContainer {
+  text-align: center;
+  position: relative;
+  padding: 5rem 0px;
+  .featuredTrailer {
+    position: relative;
+    display: inline-block;
+    img {
+      width: 200px;
+    }
+    .playButton {
+      color: var(--main-green);
+      height: 75px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .playButton:hover {
+      color: lightgray;
+    }
+  }
+}
+
+//Modal code
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Subtle transparent filter */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is above other content */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Subtle transparent filter */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is above other content */
+}
+
+.modal {
+  width: 90%;
+  max-width: 800px;
+  background: var(--main-blue);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Ensures the modal content is above the overlay */
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media (min-width: 900px) {
+    width: 70%;
+  }
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-player {
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+}
+
+@media only screen and (min-width: 925px) {
+  .featuredFilmContainer {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    .info {
+      width: 50%;
+      padding: 10px;
+    }
+    * {
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .homepageBanner {
+    padding: 100px;
+    position: relative;
+  }
+  .searchTools {
+    flex-direction: row;
+    align-items: center;
+    input {
+      margin-bottom: 0;
+    }
+  }
 }

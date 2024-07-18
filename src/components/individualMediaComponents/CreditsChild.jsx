@@ -15,15 +15,14 @@ const CreditsChild = (props) => {
     ? `https://image.tmdb.org/t/p/original${poster_path}`
     : "../../../public/images/No-image-Placeholder.svg.png";
   const titleOrName = media_type === "movie" ? title : name;
-  console.log(linkPath);
-  console.log(id);
+
   return (
     <div className="singleCreditContainer">
       <Link to={linkPath + id}>
         <img src={posterImage} alt={titleOrName} />
       </Link>
-      <p>{titleOrName}</p>
-      <p>{character}</p>
+      <p className="title">{titleOrName}</p>
+      <p className="character">{character}</p>
     </div>
   );
 };

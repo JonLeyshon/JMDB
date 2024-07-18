@@ -15,6 +15,10 @@ import Home from "./pages/Home.jsx";
 import MovieDetails from "./pages/MovieDetails.jsx";
 import PersonDetails from "./pages/PersonDetails.jsx";
 import TVDetails from "./pages/TVDetails.jsx";
+import SignUp from "./loginComponents/SignUp.jsx";
+import Login from "./loginComponents/Login.jsx";
+import { setLoggedIn } from "../redux/LoggedInOrOut.js";
+import Dashboard from "./loginComponents/Dashboard.jsx";
 
 const Interface = () => {
   const dispatch = useDispatch();
@@ -37,6 +41,20 @@ const Interface = () => {
     handleTopRatedData();
   }, [popularSelection, topRatedSelection]);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    try {
+      if (token) {
+        dispatch(setLoggedIn(true));
+      } else {
+        dispatch(setLoggedIn(false));
+      }
+    } catch (error) {
+      console.error("Error checking token:", error);
+    }
+  }, []);
+
   return (
     <>
       <Routes>
@@ -45,6 +63,9 @@ const Interface = () => {
         <Route path="/details/movie/:id" element={<MovieDetails />} />
         <Route path="/details/person/:id" element={<PersonDetails />} />
         <Route path="/details/tv/:id" element={<TVDetails />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
     </>
   );

@@ -10,8 +10,11 @@ header .headerLogo {
 }
 header ul {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
   align-items: center;
   width: 100%;
   list-style: none;
+}
+header ul li {
+  margin-right: 20px;
 }/*# sourceMappingURL=header.css.map */

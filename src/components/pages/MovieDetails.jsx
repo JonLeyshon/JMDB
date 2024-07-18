@@ -14,11 +14,12 @@ import {
   setIndividualMediaVideos,
 } from "../../redux/individualMediaSlice";
 import { useEffect } from "react";
-import IndiMovieDetails from "../individualMediaComponents/indiMovieDetails";
-import IndiCastDetails from "../individualMediaComponents/IndiCastDetails";
+import IndiMovieDetails from "../IndividualMediaComponents/indiMovieDetails";
+import IndiCastDetails from "../IndividualMediaComponents/IndiCastDetails";
 import { useParams } from "react-router-dom";
 import IndieMediaReviews from "../individualMediaComponents/IndiMediaReviews";
 import IndiMediaTrailer from "../individualMediaComponents/IndiMediaTrailer";
+import LoadingPage from "./Loading";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const MovieDetails = () => {
   const indiMovieCast = useSelector(selectIndividualMediaCast);
 
   const handleIndividualData = async () => {
+    dispatch(setIndividualMediaData(""));
     const data = await getIndividualMediaData(id, "movie");
     const cast = await getIndividualCast(id, "movie");
     const reviews = await getReviewsData(id, "movie");
@@ -40,16 +42,16 @@ const MovieDetails = () => {
   useEffect(() => {
     handleIndividualData();
   }, [id]);
-  console.log(indiMovieCast, indiMovieData);
+
   if (!indiMovieData || !indiMovieCast) {
-    return "loading...";
+    return <LoadingPage />;
   } else {
     return (
       <>
         <IndiMovieDetails />
         <IndiCastDetails />
-        <IndieMediaReviews />
         <IndiMediaTrailer />
+        <IndieMediaReviews />
       </>
     );
   }

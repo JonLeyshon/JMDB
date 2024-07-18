@@ -13,21 +13,31 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 button {
-  border-radius: 19px;
-  border: 1px solid transparent;
-  padding: 3px 15px;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  margin-right: 20px;
+  padding: 12px 5px;
+  border: none;
+  border-radius: 5px;
+  background: var(--main-blue);
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  font-size: 1em;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+  background: #449a5a;
+  transform: translateY(-3px);
 }
 
 .titleDetails {
   display: flex;
   font-size: 16px;
+}
+
+h2,
+p {
+  text-align: center;
 }/*# sourceMappingURL=JMDB.css.map */

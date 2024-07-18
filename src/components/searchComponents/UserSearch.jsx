@@ -7,28 +7,36 @@ import {
   setMovieSearchData,
   setSearchTerm,
 } from "../../redux/movieSearchSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Spinner from "../Spinner";
 
 const UserSearch = () => {
   const dispatch = useDispatch();
   const resultType = useSelector(selectResultType);
   const searchTerm = useSelector(selectSearchTerm);
+  const [loading, setLoading] = useState(false);
 
   const handleSearchData = async () => {
     if (!searchTerm || !searchTerm.length) {
       return;
     }
+    setLoading(true);
     const data = await getMoviesBySearch(searchTerm, resultType);
     dispatch(setMovieSearchData(data));
+    setLoading(false);
   };
 
   useEffect(() => {
     handleSearchData();
   }, [resultType]);
 
+  const onSearchClick = () => {
+    handleSearchData();
+  };
+
   return (
     <>
-      <div className="searchTools">
+      <div className="searchTools fullscreen">
         <input
           type="text"
           placeholder="Find your movie, tv show or actor"
@@ -37,10 +45,11 @@ const UserSearch = () => {
           }}
           value={searchTerm}
         />
-
-        <button>
-          <Link to="/search">search</Link>
-        </button>
+        <Link to="/search">
+          <button onClick={onSearchClick} className="searchButton">
+            {loading ? <Spinner /> : "Search"}
+          </button>
+        </Link>
       </div>
     </>
   );
