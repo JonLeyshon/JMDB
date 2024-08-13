@@ -6,6 +6,7 @@ import { setLoggedIn, selectLoggedIn } from "../../redux/LoggedInOrOut";
 import EmailPassword from "./EmailPassword";
 import Dashboard from "./Dashboard";
 import { Link } from "react-router-dom";
+import { url } from "../utils/config";
 
 const Login = () => {
   const [userInput, setUserInput] = useState({});
@@ -21,10 +22,7 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "http://localhost:3000/login",
-        userInput
-      );
+      const { data } = await axios.post(`${url}/login`, userInput);
       if (data.status === 200) {
         console.log(data.status);
         localStorage.setItem("token", data.token);

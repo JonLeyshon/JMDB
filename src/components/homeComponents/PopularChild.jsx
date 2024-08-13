@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { selectCurrentSelectionPoular } from "../../redux/PopularDataSlice";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
+import { FaHeart } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa6";
 const PopularChild = (props) => {
   const { title, poster_path, profile_path, vote_average, release_date, id } =
     props;
@@ -52,7 +54,14 @@ const PopularChild = (props) => {
         <img src={imageSrc} alt={title} />
 
         <div className="MovieChildDetails">
-          <Tooltip id="my-tooltip" place="bottom" type="dark" effect="float" />
+          {currentSelection === "person" ? (
+            <Tooltip
+              id="my-tooltip"
+              place="bottom"
+              type="dark"
+              effect="float"
+            />
+          ) : null}
         </div>
       </Link>
     </div>

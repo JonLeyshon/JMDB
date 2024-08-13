@@ -1,5 +1,6 @@
 import { faV } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { url } from "./config";
 
 export const addMediaToDatabase = async (
   mediaID,
@@ -20,11 +21,7 @@ export const addMediaToDatabase = async (
   };
 
   try {
-    const { data } = await axios.post(
-      "http://localhost:3000/addContent",
-      body,
-      { headers }
-    );
+    const { data } = await axios.post(`${url}/addContent`, body, { headers });
     console.log("Content added successfully:", data);
   } catch (error) {
     console.log("Error adding content to database", error);
@@ -51,7 +48,7 @@ export const checkLikedorFavourited = async (
 
   console.log(params, headers);
   try {
-    const { data } = await axios.get("http://localhost:3000/checkContent", {
+    const { data } = await axios.get(`${url}/checkContent`, {
       params,
       headers,
     });

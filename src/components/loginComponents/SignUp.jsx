@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard";
 import "../../css/login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoggedIn, setLoggedIn } from "../../redux/LoggedInOrOut";
+import { url } from "../utils/config";
 
 const SignUp = () => {
   const [userInput, setUserInput] = useState({
@@ -23,7 +24,7 @@ const SignUp = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3000/add", userInput);
+      const { data } = await axios.post(`${url}/add`, userInput);
       if (data.status === 200) {
         console.log(data);
         localStorage.setItem("token", data.token);

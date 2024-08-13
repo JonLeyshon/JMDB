@@ -7,6 +7,7 @@ import DashboardCarouselChild from "./DashboardCarouselChild";
 import { addMediaToDatabase } from "../utils/usefulFunctions";
 import { FaHeart } from "react-icons/fa";
 import { FaBookmark } from "react-icons/fa6";
+import { url } from "../utils/config";
 
 const Dashboard = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -21,7 +22,7 @@ const Dashboard = () => {
       token: token,
     };
     try {
-      const response = await axios.get("http://localhost:3000/read", {
+      const response = await axios.get(`${url}/read`, {
         headers,
       });
       if (response.status === 200) {
@@ -40,10 +41,9 @@ const Dashboard = () => {
       token: token,
     };
     try {
-      const response = await axios.get(
-        "http://localhost:3000/getFavouritedContent",
-        { headers }
-      );
+      const response = await axios.get(`${url}/getFavouritedContent`, {
+        headers,
+      });
       const content = response.data.map((item) => ({
         content_id: item.content_id,
         media_type: item.media_type,
@@ -60,7 +60,7 @@ const Dashboard = () => {
       token: token,
     };
     try {
-      const response = await axios.get("http://localhost:3000/getToWatch", {
+      const response = await axios.get(`${url}/getToWatch`, {
         headers,
       });
       const content = response.data.map((item) => ({

@@ -102,13 +102,15 @@ const IndiMovieDetails = () => {
               {genres.length >= 2 ? `${genres[0].name}, ${genres[1].name}` : ""}
             </p>
             <div className="movieListButtons">
-              <Tooltip id="heartTooltip" place="top" effect="solid">
-                {token
-                  ? "Click to add to favourites"
-                  : "Log in to add movies to your favourites"}
-              </Tooltip>
+              <Tooltip id="heartTooltip" place="top" effect="solid"></Tooltip>
               <FaHeart
                 className="icon"
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to favourites"
+                    : "Log in to add movies to your favourites"
+                }
                 size="2em"
                 color={liked ? "#81e291" : "white"}
                 onClick={() => {
@@ -123,6 +125,12 @@ const IndiMovieDetails = () => {
                 className="icon"
                 size="2em"
                 color={towatch ? "#81e291" : "white"}
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to watch list"
+                    : "Log in to add movies to your watch list"
+                }
                 onClick={() => {
                   if (token) {
                     addMediaToDatabase(id, "movie", "towatch");
