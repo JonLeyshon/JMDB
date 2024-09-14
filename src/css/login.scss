@@ -76,9 +76,10 @@
           border-radius: 5px;
           background: #57b773;
           color: #fff;
+          margin: auto;
           cursor: pointer;
           font-size: 1em;
-          transition: background 0.3s ease, transform 0.3s ease;
+          transition: 0.3s ease, transform 0.3s ease;
 
           &:hover {
             background: #449a5a;
@@ -178,9 +179,11 @@
   border-radius: 5px;
   background: #57b773;
   color: #fff;
+  margin: auto;
+  width: 100px;
   cursor: pointer;
   font-size: 1em;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: 0.3s ease, transform 0.3s ease;
 }
 
 .signUpForm button:hover {

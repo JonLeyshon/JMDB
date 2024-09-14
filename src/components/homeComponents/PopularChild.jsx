@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectCurrentSelectionPoular } from "../../redux/PopularDataSlice";
 import { Link } from "react-router-dom";
-import { Tooltip } from "react-tooltip";
-import { FaHeart } from "react-icons/fa";
-import { FaBookmark } from "react-icons/fa6";
+
 const PopularChild = (props) => {
   const { title, poster_path, profile_path, vote_average, release_date, id } =
     props;
@@ -11,22 +9,22 @@ const PopularChild = (props) => {
 
   const movieImage = poster_path
     ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
   const personImage = profile_path
     ? `https://image.tmdb.org/t/p/original${profile_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
 
   const titleOrName =
     currentSelection === "person" || currentSelection === "tv"
       ? props.name
       : title;
 
-  const readableDate = new Date(release_date).toDateString();
-
   const imageSrc =
     currentSelection === "movie" || currentSelection === "tv"
       ? movieImage
       : personImage;
+
+  const voteAsPercentage = Math.floor(vote_average * 10);
 
   let detailsLink;
 
@@ -46,22 +44,22 @@ const PopularChild = (props) => {
 
   return (
     <div className="movieChild">
-      <Link
-        to={detailsLink + id}
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content={titleOrName}
-      >
-        <img src={imageSrc} alt={title} />
+      <Link to={detailsLink + id}>
+        <div className="image-container imageContainer">
+          <img src={imageSrc} alt={titleOrName} className="image" />
+          {currentSelection === "person" && (
+            <div className="overlay">
+              <span className="overlay-text">{titleOrName}</span>
+            </div>
+          )}
 
-        <div className="MovieChildDetails">
-          {currentSelection === "person" ? (
-            <Tooltip
-              id="my-tooltip"
-              place="bottom"
-              type="dark"
-              effect="float"
-            />
-          ) : null}
+          {(currentSelection === "tv" || currentSelection === "movie") && (
+            <div className="rating-circle">
+              <div className="rating-content">
+                <span>{voteAsPercentage}%</span>
+              </div>
+            </div>
+          )}
         </div>
       </Link>
     </div>

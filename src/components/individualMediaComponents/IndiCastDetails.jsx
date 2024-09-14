@@ -9,15 +9,19 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 const IndiCastDetails = () => {
   const CastArray = useSelector(selectIndividualMediaCast);
 
-  if (!CastArray?.length) return <Spinner />;
-
   return (
     <>
       <h2 className="indiMediaTitle">
-        {" "}
         Cast <FontAwesomeIcon icon={faUser} />{" "}
       </h2>
-      <CastCarousel />
+      {!CastArray.length ? (
+        <div>
+          <p> No cast Found</p>
+        </div>
+      ) : (
+        <CastCarousel />
+      )}
+
       {/* <div className="castContainer">
         {cast.map((item) => (
           <IndiCastActors {...item} />

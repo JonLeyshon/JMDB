@@ -131,7 +131,6 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="personalInfoContainer">
-        <img src="../../public/images/avatar.png" alt="User Avatar" />
         <h2>
           {userDetails
             ? `${userDetails.first_name} ${userDetails.second_name}`

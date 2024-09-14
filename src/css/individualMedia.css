@@ -17,6 +17,7 @@
   background-position: top;
   min-height: 50vh;
   display: flex;
+  flex-direction: column;
 }
 .IndiMovieContainer p {
   margin: 5px;
@@ -27,22 +28,27 @@
   color: black;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   padding: 16px;
   width: 100%;
 }
 .IndiMovieContainer .IndiMovieContent .indiMovieDetails {
   padding: 12px;
-  font-size: 14px;
+  font-size: 18px;
 }
 .IndiMovieContainer .indiMoviePoster {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .IndiMovieContainer .indiMoviePoster img {
-  width: 130px;
+  width: 180px;
+  height: auto;
   border-radius: 10px;
   padding: 0 10px;
 }
@@ -102,7 +108,6 @@
   flex-direction: column;
   align-items: center;
   padding: 5vw 10vw;
-  border-radius: 10px;
 }
 .biographyContainer .bioOverview {
   text-align: center;
@@ -163,6 +168,9 @@ svg.icon {
 }
 
 @media (min-width: 650px) {
+  .IndiMovieContainer .IndiMovieContent {
+    flex-direction: row;
+  }
   .biographyContainer {
     flex-direction: row;
     justify-content: space-around;

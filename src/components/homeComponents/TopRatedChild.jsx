@@ -13,11 +13,18 @@ const TopRatedChild = (props) => {
     currentSelection === "person" || currentSelection === "tv"
       ? props.name
       : title;
+  const voteAsPercentage = Math.floor(vote_average * 10);
+
   return (
-    <div className="movieChildSmall">
+    <div className="movieChildSmall imageContainer">
       <Link to={linkPath + id}>
         <img src={image} />
       </Link>
+      <div className="rating-circle-small">
+        <div className="rating-content-small">
+          <span>{voteAsPercentage}%</span>
+        </div>
+      </div>
     </div>
   );
 };

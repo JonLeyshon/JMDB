@@ -40,4 +40,72 @@ button:hover {
 h2,
 p {
   text-align: center;
+}
+
+.imageContainer {
+  position: relative;
+  display: inline-block;
+}
+.imageContainer img {
+  display: block;
+  width: 140px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.rating-circle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(var(--progress-color) 72%, var(--background-color) 72%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #00242c;
+  --progress-color: #81e291;
+  --background-color: #f1f1f1;
+}
+
+.rating-content {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #00242c;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-circle-small {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px; /* Reduced the size from 50px to 40px */
+  height: 40px;
+  border-radius: 50%;
+  background: conic-gradient(var(--progress-color) 72%, var(--background-color) 72%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #00242c;
+  --progress-color: #81e291;
+  --background-color: #f1f1f1;
+}
+
+.rating-content-small {
+  position: absolute;
+  width: 35px; /* Adjusted to be smaller */
+  height: 35px;
+  border-radius: 50%;
+  background-color: #00242c;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em; /* Adjusted font size for smaller circle */
 }/*# sourceMappingURL=JMDB.css.map */

@@ -68,16 +68,11 @@ const IndiMovieDetails = () => {
     return `${hours}h${remainingMinutes}m`;
   }
 
-  function convertToStars(rating) {
-    const roundedRating = Math.floor(rating);
-    return "★".repeat(roundedRating);
-  }
-
-  const ratingStars = convertToStars(vote_average);
+  const voteAsPercentage = Math.floor(vote_average * 10);
 
   const posterImage = poster_path
     ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
 
   return (
     <>
@@ -90,8 +85,15 @@ const IndiMovieDetails = () => {
         <div className="overlay"></div>
         <div className="IndiMovieContent">
           <div className="indiMoviePoster">
-            <img src={posterImage} />
-            <p>{ratingStars}</p>
+            <div className="imageContainer">
+              <img src={posterImage} />
+              <div class="rating-circle">
+                <div class="rating-content">
+                  <span>{voteAsPercentage}%</span>
+                </div>
+              </div>
+            </div>
+
             <p>Runtime: {convertToHoursAndMinutes(runtime)}</p>
           </div>
 

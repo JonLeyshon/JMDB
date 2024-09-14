@@ -16,23 +16,28 @@ const Footer = () => {
         </div>
         <div className="footer-right">
           <p> &copy;Copyright 2024</p>
-          <p> Contact us </p>
         </div>
       </div>
       <div className="footerLinks">
-        <button>
-          <FontAwesomeIcon icon={faGlobe} />
-          Website
-        </button>
-        <button>
-          {" "}
-          <FontAwesomeIcon icon={faGithub} />
-          Github{" "}
-        </button>
-        <button>
-          {" "}
-          <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
-        </button>
+        <a href="https://www.jonleyshoncodes.co.uk" target="_blank">
+          <button className="contactBtn">
+            <FontAwesomeIcon icon={faGlobe} />
+          </button>
+        </a>
+
+        <a href="https://github.com/JonLeyshon" target="_blank">
+          <button className="contactBtn">
+            <FontAwesomeIcon icon={faGithub} />
+          </button>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jon-leyshon-338534a9/"
+          target="_blank"
+        >
+          <button className="contactBtn">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </button>
+        </a>
       </div>
     </>
   );

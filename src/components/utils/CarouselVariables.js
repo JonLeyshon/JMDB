@@ -43,11 +43,11 @@ export const responsiveLarge = {
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 950, min: 550 },
+    breakpoint: { max: 950, min: 690 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 550, min: 0 },
+    breakpoint: { max: 690, min: 0 },
     items: 1,
   },
 };

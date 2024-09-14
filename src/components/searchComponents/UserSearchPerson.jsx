@@ -4,7 +4,7 @@ const UserSearchPerson = (props) => {
   const { name, known_for_department, profile_path, id, known_for } = props;
   const posterImage = profile_path
     ? `https://image.tmdb.org/t/p/original${profile_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
   return (
     <>
       <div className="searchResultChild">

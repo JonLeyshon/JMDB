@@ -10,12 +10,39 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
   img {
     width: 250px;
     height: 375px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   }
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.overlay-text {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .movieChildSmall {
@@ -42,25 +69,26 @@ h2.movieContainerTitle {
   background-position: top;
   background-size: cover;
   color: white;
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 36, 44, 0.7);
-  }
+}
 
-  .bannerContent {
-    position: relative;
-    z-index: 1;
-  }
+.homepageBanner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-  h1,
-  h4 {
-    padding: 10px 20px;
-    z-index: 1;
-  }
+  background-color: rgba(0, 36, 44, 0.7);
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h4 {
+  padding: 10px 20px;
+  z-index: 1;
 }
 
 .paddedMain {
@@ -71,38 +99,28 @@ h2.movieContainerTitle {
   text-align: center;
   position: relative;
   padding: 5rem 0px;
-  .featuredTrailer {
-    position: relative;
-    display: inline-block;
-    img {
-      width: 200px;
-    }
-    .playButton {
-      color: var(--main-green);
-      height: 75px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .playButton:hover {
-      color: lightgray;
-    }
-  }
 }
 
-//Modal code
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Subtle transparent filter */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensures the modal is above other content */
+.featuredTrailer {
+  position: relative;
+  display: inline-block;
+}
+
+.featuredTrailer img {
+  width: 200px;
+}
+
+.playButton {
+  color: var(--main-green);
+  height: 75px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.playButton:hover {
+  color: lightgray;
 }
 
 .modal-overlay {
@@ -111,11 +129,11 @@ h2.movieContainerTitle {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Subtle transparent filter */
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensures the modal is above other content */
+  z-index: 1000;
 }
 
 .modal {
@@ -125,13 +143,17 @@ h2.movieContainerTitle {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1001; /* Ensures the modal content is above the overlay */
+  z-index: 1001;
+}
 
-  @media (min-width: 600px) {
+@media (min-width: 600px) {
+  .modal {
     width: 80%;
   }
+}
 
-  @media (min-width: 900px) {
+@media (min-width: 900px) {
+  .modal {
     width: 70%;
   }
 }
@@ -156,13 +178,23 @@ h2.movieContainerTitle {
     margin-top: 50px;
     justify-content: space-evenly;
     align-items: center;
-    .info {
-      width: 50%;
-      padding: 10px;
-    }
-    * {
-      text-align: left;
-    }
+  }
+
+  .info {
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    // small {
+    //   text-align: left;
+    //   width: 100%;
+    // }
+    // * {
+    //   text-align: left;
+    // }
   }
 }
 
@@ -171,11 +203,13 @@ h2.movieContainerTitle {
     padding: 100px;
     position: relative;
   }
+
   .searchTools {
     flex-direction: row;
     align-items: center;
-    input {
-      margin-bottom: 0;
-    }
+  }
+
+  .searchTools input {
+    margin-bottom: 0;
   }
 }

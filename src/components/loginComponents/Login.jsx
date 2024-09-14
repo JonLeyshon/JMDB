@@ -30,7 +30,9 @@ const Login = () => {
         setLoginErrorMsg("");
       } else {
         dispatch(setLoggedIn(false));
-        setLoginErrorMsg("Incorrect Credentials, please try again");
+        setLoginErrorMsg(
+          "Incorrect Credentials, please try again, or create an account"
+        );
       }
     } catch (error) {
       console.error("Login failed:", error);

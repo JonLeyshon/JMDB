@@ -10,6 +10,7 @@
 .searchTools button {
   border-radius: 24px;
   background-color: var(--main-green);
+  color: #00242c;
   padding: 17px;
   border: 3px solid black;
   font-weight: 700;
@@ -54,7 +55,8 @@
   text-align: left;
 }
 .searchResultChild img {
-  width: 150px;
+  width: 140px;
+  height: 200px;
   padding: 10px;
 }
 .searchResultChild h3 {

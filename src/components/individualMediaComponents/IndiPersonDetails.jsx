@@ -53,7 +53,7 @@ const IndiPersonDetails = () => {
 
   const posterImage = profile_path
     ? `https://image.tmdb.org/t/p/original${profile_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
 
   return (
     <>
