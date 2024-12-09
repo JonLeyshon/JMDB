@@ -2,12 +2,14 @@
 From Trailers to Reviews: Everything Movies, One Click Away.
 
 ****Features****
-Home Page: Displays popular and highest-rated media, featured trailers, and a search bar for user queries.
-Search Functionality: Search for movies, TV shows, or actors to access dedicated pages with:
+**Home Page:** Displays popular and highest-rated media, featured trailers, and a search bar for user queries.
+
+**Search Functionality:** Search for movies, TV shows, or actors to access dedicated pages with:
 Summaries and ratings.
 Cast details.
 Trailers and more.
-User Account Features:
+
+**User Account Features:**
 Log in to manage your personal watchlist.
 Mark your favorite films for easy access.
 
