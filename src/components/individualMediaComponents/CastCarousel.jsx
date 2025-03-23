@@ -7,7 +7,7 @@ import Carousel from "react-multi-carousel";
 const CastCarousel = () => {
   const CastArray = useSelector(selectIndividualMediaCast);
 
-  if (!CastArray?.length) return "<Spinner />";
+  if (!CastArray?.length) return "<p>No cast found</p>";
   return (
     <>
       <div className="castContainer">

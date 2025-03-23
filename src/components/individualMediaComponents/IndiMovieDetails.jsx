@@ -68,16 +68,11 @@ const IndiMovieDetails = () => {
     return `${hours}h${remainingMinutes}m`;
   }
 
-  function convertToStars(rating) {
-    const roundedRating = Math.floor(rating);
-    return "★".repeat(roundedRating);
-  }
-
-  const ratingStars = convertToStars(vote_average);
+  const voteAsPercentage = Math.floor(vote_average * 10);
 
   const posterImage = poster_path
     ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
 
   return (
     <>
@@ -90,8 +85,15 @@ const IndiMovieDetails = () => {
         <div className="overlay"></div>
         <div className="IndiMovieContent">
           <div className="indiMoviePoster">
-            <img src={posterImage} />
-            <p>{ratingStars}</p>
+            <div className="imageContainer">
+              <img src={posterImage} />
+              <div class="rating-circle">
+                <div class="rating-content">
+                  <span>{voteAsPercentage}%</span>
+                </div>
+              </div>
+            </div>
+
             <p>Runtime: {convertToHoursAndMinutes(runtime)}</p>
           </div>
 
@@ -102,13 +104,15 @@ const IndiMovieDetails = () => {
               {genres.length >= 2 ? `${genres[0].name}, ${genres[1].name}` : ""}
             </p>
             <div className="movieListButtons">
-              <Tooltip id="heartTooltip" place="top" effect="solid">
-                {token
-                  ? "Click to add to favourites"
-                  : "Log in to add movies to your favourites"}
-              </Tooltip>
+              <Tooltip id="heartTooltip" place="top" effect="solid"></Tooltip>
               <FaHeart
                 className="icon"
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to favourites"
+                    : "Log in to add movies to your favourites"
+                }
                 size="2em"
                 color={liked ? "#81e291" : "white"}
                 onClick={() => {
@@ -123,6 +127,12 @@ const IndiMovieDetails = () => {
                 className="icon"
                 size="2em"
                 color={towatch ? "#81e291" : "white"}
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to watch list"
+                    : "Log in to add movies to your watch list"
+                }
                 onClick={() => {
                   if (token) {
                     addMediaToDatabase(id, "movie", "towatch");

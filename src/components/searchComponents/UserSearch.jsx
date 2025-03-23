@@ -1,6 +1,6 @@
 import { getMoviesBySearch } from "../utils/getDataUtils";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   selectResultType,
   selectSearchTerm,
@@ -15,6 +15,9 @@ const UserSearch = () => {
   const resultType = useSelector(selectResultType);
   const searchTerm = useSelector(selectSearchTerm);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const url = useParams();
 
   const handleSearchData = async () => {
     if (!searchTerm || !searchTerm.length) {
@@ -30,8 +33,21 @@ const UserSearch = () => {
     handleSearchData();
   }, [resultType]);
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      dispatch(setSearchTerm(""));
+    }
+  }, [location.pathname, dispatch]);
+
   const onSearchClick = () => {
     handleSearchData();
+    navigate("/search");
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onSearchClick();
+    }
   };
 
   return (
@@ -44,12 +60,11 @@ const UserSearch = () => {
             dispatch(setSearchTerm(e.target.value));
           }}
           value={searchTerm}
+          onKeyDown={handleKeyPress}
         />
-        <Link to="/search">
-          <button onClick={onSearchClick} className="searchButton">
-            {loading ? <Spinner /> : "Search"}
-          </button>
-        </Link>
+        <button onClick={onSearchClick} className="searchButton">
+          {loading ? <Spinner /> : "Search"}
+        </button>
       </div>
     </>
   );

@@ -3,6 +3,8 @@ import PopularCarousel from "../homeComponents/PopularCarousel";
 import TopRatedCarousel from "../homeComponents/topRatedCarousel";
 import Banner from "../homeComponents/Banner";
 import FeaturedFilm from "../homeComponents/FeaturedFilm";
+import { useEffect } from "react";
+
 const Home = () => {
   return (
     <>

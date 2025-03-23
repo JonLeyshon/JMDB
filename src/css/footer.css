@@ -13,9 +13,9 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  img {
-    width: 100px;
-  }
+}
+.footer-left img {
+  width: 100px;
 }
 
 .footer-right {
@@ -27,7 +27,12 @@ footer {
   display: flex;
   justify-content: center;
   padding-bottom: 10px;
-  button {
-    background-color: var(--main-green);
-  }
+}
+
+.footerLinks button {
+  background-color: var(--main-green);
+}
+
+.contactBtn {
+  color: var(--main-blue);
 }

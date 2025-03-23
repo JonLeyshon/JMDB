@@ -2,12 +2,13 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setLoggedIn } from "../../redux/LoggedInOrOut";
+import { url } from "../utils/config";
 
 const LogOut = () => {
   const dispatch = useDispatch();
   const handleLogOut = async () => {
     try {
-      const { data } = await axios.delete("http://localhost:3000/logout", {
+      const { data } = await axios.delete(`${url}/logout`, {
         headers: { token: localStorage.getItem("token") },
       });
       localStorage.removeItem("token");

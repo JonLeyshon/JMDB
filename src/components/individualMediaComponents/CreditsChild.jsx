@@ -13,7 +13,7 @@ const CreditsChild = (props) => {
   const linkPath = media_type === "movie" ? "/details/movie/" : "/details/tv/";
   const posterImage = poster_path
     ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
   const titleOrName = media_type === "movie" ? title : name;
 
   return (

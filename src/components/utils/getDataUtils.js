@@ -18,6 +18,7 @@ export const getMoviesBySearch = async (userQuery, resultType) => {
 };
 
 export const getPopularData = async (selection) => {
+  console.log(APIKEY);
   try {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/${selection}/popular`,

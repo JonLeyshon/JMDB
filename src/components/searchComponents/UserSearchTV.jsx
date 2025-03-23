@@ -14,14 +14,24 @@ const UserSearchTV = (props) => {
   const readableReleaseDate = new Date(first_air_date).toDateString();
   const posterImage = poster_path
     ? `https://image.tmdb.org/t/p/original${poster_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
+
+  const voteAsPercentage = Math.floor(vote_average * 10);
 
   return (
     <>
       <div className="searchResultChild">
-        <Link to={"/details/tv/" + id}>
-          <img src={posterImage} alt={`${name} poster `} />
-        </Link>
+        <div className="imageContainer">
+          <Link to={"/details/tv/" + id}>
+            <img src={posterImage} alt={`${name} poster `} />
+          </Link>
+          <div class="rating-circle">
+            <div class="rating-content">
+              <span>{voteAsPercentage}%</span>
+            </div>
+          </div>
+        </div>
+
         <div className="movieDetails">
           <h3>{name}</h3>
           <small> Original Release: {readableReleaseDate} </small>

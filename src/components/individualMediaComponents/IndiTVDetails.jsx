@@ -8,55 +8,42 @@ import {
 } from "../utils/usefulFunctions";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Tooltip } from "react-tooltip";
 
 const IndiTVDetails = () => {
   const TVData = useSelector(selectIndividualMediaData);
   const { id } = useParams();
   const [liked, setLiked] = useState(false);
   const [towatch, setToWatch] = useState(false);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchData = async () => {
       const likedContent = await checkLikedorFavourited(id, "tv", "favourite");
       const towatchContent = await checkLikedorFavourited(id, "tv", "towatch");
 
-      if (likedContent && likedContent.length) {
-        console.log("liked");
-        setLiked(true);
-      } else {
-        setLiked(false);
-      }
-
-      if (towatchContent && towatchContent.length) {
-        console.log("towatch");
-        setToWatch(true);
-      } else {
-        setToWatch(false); // Corrected to set `towatch` state
-      }
+      setLiked(!!(likedContent && likedContent.length));
+      setToWatch(!!(towatchContent && towatchContent.length));
     };
 
     fetchData();
-  }, [id]); // Include `id` in the dependency array to rerun the effect when `id` changes
+  }, [id]);
 
   const {
     name,
     poster_path,
     overview,
-    original_language,
     vote_average,
-    status,
     backdrop_path,
     first_air_date,
   } = TVData;
 
   const readableDate = new Date(first_air_date).toDateString();
+  const voteAsPercentage = Math.floor(vote_average * 10);
 
-  function convertToStars(rating) {
-    const roundedRating = Math.floor(rating);
-    return "★".repeat(roundedRating);
-  }
-
-  const ratingStars = convertToStars(vote_average);
+  const posterImage = poster_path
+    ? `https://image.tmdb.org/t/p/original${poster_path}`
+    : "/Images/No-Image-Placeholder.png";
 
   return (
     <>
@@ -68,37 +55,55 @@ const IndiTVDetails = () => {
       >
         <div className="overlay"></div>
         <div className="IndiMovieContent">
-          <div className="indiMoviePoster">
-            <img
-              src={`https://image.tmdb.org/t/p/original${poster_path}`}
-              alt={name}
-            />
-            <p>{ratingStars}</p>
+          <div className="indiMoviePoster imageContainer">
+            <img src={posterImage} alt={name || "TV Show Poster"} />
+            <div class="rating-circle">
+              <div class="rating-content">
+                <span>{voteAsPercentage}%</span>
+              </div>
+            </div>
           </div>
           <div className="indiMovieDetails">
-            <h2> {name}</h2>
-            <p> First Aired: {readableDate}</p>
+            <h2>{name}</h2>
+            <p>First Aired: {readableDate}</p>
             <div className="movieListButtons">
+              <Tooltip id="heartTooltip" place="top" effect="solid"></Tooltip>
               <FaHeart
                 className="icon"
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to favourites"
+                    : "Log in to add TV shows to your favourites"
+                }
                 size="2em"
                 color={liked ? "#81e291" : "white"}
                 onClick={() => {
-                  addMediaToDatabase(id, "tv", "favourite");
-                  setLiked(!liked); // Toggle liked state
+                  if (token) {
+                    addMediaToDatabase(id, "tv", "favourite");
+                    setLiked(!liked);
+                  }
                 }}
               />
               <FaBookmark
                 className="icon"
                 size="2em"
                 color={towatch ? "#81e291" : "white"}
+                data-tooltip-id="heartTooltip"
+                data-tooltip-content={
+                  token
+                    ? "Click to add to watch list"
+                    : "Log in to add TV shows to your watch list"
+                }
                 onClick={() => {
-                  addMediaToDatabase(id, "tv", "towatch");
-                  setToWatch(!towatch); // Toggle towatch state
+                  if (token) {
+                    addMediaToDatabase(id, "tv", "towatch");
+                    setToWatch(!towatch);
+                  }
                 }}
               />
             </div>
-            <h3> Overview </h3>
+            <h3>Overview</h3>
             <p>{overview}</p>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectcurrentSelectionTR } from "../../redux/topRatedSlice";
-import { Tooltip } from "react-tooltip";
 
 const TopRatedChild = (props) => {
   const { id, title, overview, poster_path, vote_average } = props;
@@ -14,16 +13,18 @@ const TopRatedChild = (props) => {
     currentSelection === "person" || currentSelection === "tv"
       ? props.name
       : title;
+  const voteAsPercentage = Math.floor(vote_average * 10);
+
   return (
-    <div className="movieChildSmall">
-      <Link
-        to={linkPath + id}
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content={titleOrName}
-      >
+    <div className="movieChildSmall imageContainer">
+      <Link to={linkPath + id}>
         <img src={image} />
-        <Tooltip id="my-tooltip" place="top" />
       </Link>
+      <div className="rating-circle-small">
+        <div className="rating-content-small">
+          <span>{voteAsPercentage}%</span>
+        </div>
+      </div>
     </div>
   );
 };

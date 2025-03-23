@@ -18,7 +18,7 @@ const FeaturedFilm = () => {
   };
 
   if (randomNum === null) {
-    return null; // or a loading spinner, or any other placeholder
+    return null;
   }
 
   const FeaturedFilm = FeaturedFilmsArray[randomNum];

@@ -5,7 +5,7 @@ const IndiCastActors = (props) => {
   const { name, profile_path, character, id } = props;
   const profileImage = profile_path
     ? `https://image.tmdb.org/t/p/original${profile_path}`
-    : "../../../public/images/No-image-Placeholder.svg.png";
+    : "/Images/No-Image-Placeholder.png";
   return (
     <div className="indiActorContainer">
       <Link

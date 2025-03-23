@@ -10,6 +10,7 @@
 .searchTools button {
   border-radius: 24px;
   background-color: var(--main-green);
+  color: #00242c;
   padding: 17px;
   // position: relative;
   // left: -87px;
@@ -55,7 +56,8 @@
     }
   }
   img {
-    width: 150px;
+    width: 140px;
+    height: 200px;
     padding: 10px;
   }
   h3 {

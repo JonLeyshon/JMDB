@@ -59,7 +59,7 @@ const IndiMediaReviews = () => {
     const { content, created_at } = reviewData[reviewNum];
     const avatarImage = avatar_path
       ? `https://image.tmdb.org/t/p/original${avatar_path}`
-      : "../../../public/images/avatar.png";
+      : "/Images/avatar.png";
     const readabledate = new Date(created_at).toDateString();
     const ratingStars = convertToStars(rating);
 
